@@ -32,6 +32,7 @@ import ReactPlayer from "react-player";
 import Shinkafa from "../images/Sports/Shinkafa.mp4";
 import GaloreDrawer from "../util/GaloreDrawer";
 
+
 // import image7 from "../images/Carouselimages/culture2.jpg"
 // import image8 from "../images/Carouselimages/AuntyRO1.jpg"
 // import image10 from "../images/Carouselimages/AfricanStor4.jpg"

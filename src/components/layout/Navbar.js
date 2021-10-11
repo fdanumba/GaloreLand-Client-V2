@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+
 import "../../App.css";
 
 import "../css/Header.css";
@@ -18,11 +19,12 @@ function Navbar(props) {
   const { basket, logedIn, authenticated, logoutUser } = props;
 
    const handleLogout = () => {
-    logoutUser();
+    // logoutUser();
+    
   };
-  
+  console.log(authenticated);
   const loginLogout = authenticated ? (
-    <Button color="inherit" onClick= {this.handleLogout}>
+    <Button color="inherit" onClick= {handleLogout}  component={Link} to="/login">
       Logout
     </Button>
   ) : (
@@ -39,9 +41,9 @@ function Navbar(props) {
   return (
     <AppBar>
       <Toolbar className="nav-container">
-        <Button color="inherit" component={Link} to="/">
+        {/* <Button color="inherit" component={Link} to="/">
           Home
-        </Button>
+        </Button> */}
         <Button color="inherit" component={Link} to="/galoreSocial">
           Socials
         </Button>

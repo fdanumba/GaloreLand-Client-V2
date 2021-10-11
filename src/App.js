@@ -63,7 +63,7 @@ function App() {
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
         <Router>
-        <Navbar/> 
+        {/* <Navbar/>  */}
          {/* //<Navbar{...{logedIn}}/> */}
              <div className="container">
               <Switch> 
