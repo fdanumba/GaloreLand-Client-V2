@@ -331,7 +331,7 @@ class Home extends Component {
           <div>
             <div>
               {" "}
-              <h2 style={{ textAlign: "center" }} Position="absolute">
+              <h2 style={{ textAlign: "center" }} position="absolute">
                 Welcome to LetsConnect!
               </h2>
             </div>
@@ -340,7 +340,7 @@ class Home extends Component {
                 container
                 justify="center"
                 alignItems="center"
-                Position="absolute"
+                position="absolute"
               >
                 {/* <Grid item xs={5} >
                   <GaloreDrawer/>

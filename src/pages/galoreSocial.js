@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
+import LogInOut from "../util/LoginLogout"
 
 import dayjs from "dayjs";
 // import EditDetails from "./EditDetails";
@@ -48,7 +49,8 @@ import image6 from "../images/Carouselimages/Ugo3.jpg"
 import { connect } from "react-redux";
 import { logoutUser, uploadImage } from "../redux/actions/userActions";
 import { getYips } from "../redux/actions/dataActions";
-
+import { loginUser} from "../redux/actions/userActions";
+ import { userReducer } from "../redux/reducers/userReducer";
 const styles = (theme) => ({
   ...theme.spreadIt,
   root: {
@@ -114,6 +116,7 @@ class galoreSocial extends Component {
   };
   componentDidMount() {
     this.props.getYips();
+    //this.props.userReducer();
   }
 
   handleImageChange = (event) => {
@@ -143,10 +146,10 @@ class galoreSocial extends Component {
     );
     return (
       <div>
-        <Navbar/>
+        <Navbar authenticated={authenticated} GlogoutUser={logoutUser}/>
          {!authenticated ? (
            <div className={classes.root}>
-            <Grid container spacing={3}>
+           <Grid container spacing={3}>
               {/* <Grid item xs={12}>
                   <GaloreDrawer/>
               </Grid>  */}
@@ -203,7 +206,7 @@ class galoreSocial extends Component {
                       variant="contained"
                       color="primary"
                       component={Link}
-                      to="/login"
+                      to="/Login"
                     >
                       Login
                     </Button>
@@ -222,7 +225,7 @@ class galoreSocial extends Component {
           </div>
           ) : (
           <div>
-            <Grid container>
+          <Grid container>
             <Grid item sm={3} xs={12}>
               <Profile />
             </Grid>
@@ -253,11 +256,13 @@ const mapStateToProps = (state) => ({
   user: state.user,
   getYips: PropTypes.func.isRequired,
   data: state.data,
+  userReducer: PropTypes.func.isRequired,
 });
 
 const mapActionsToProps = {
      logoutUser,
      uploadImage,
+     loginUser,
      
 };
 
@@ -267,9 +272,10 @@ galoreSocial.propTypes = {
   user: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
+  Login: PropTypes.func.isRequired,
 
 };
 
-export default connect(mapStateToProps, {mapActionsToProps, getYips})(withStyles(styles)(galoreSocial));
+export default connect(mapStateToProps, {mapActionsToProps, getYips,logoutUser})(withStyles(styles)(galoreSocial));
 
 //export default galoreSocial
