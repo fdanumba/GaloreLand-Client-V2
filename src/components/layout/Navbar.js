@@ -54,7 +54,7 @@ function Navbar(props) {
 
   const handleLogout =  () => {
     props.logoutUser();
-
+ 
 };
  
   console.log(authenticated);
